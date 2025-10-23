@@ -1,0 +1,172 @@
+:root {
+  --primary: #4e73df;
+  --secondary: #1cc88a;
+  --bg-light: #f4f6f8;
+  --bg-dark: #1a1a1a;
+  --text-light: #fff;
+  --text-dark: #222;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: var(--bg-light);
+  color: var(--text-dark);
+  transition: background 0.3s, color 0.3s;
+}
+
+.dark-mode {
+  background: var(--bg-dark);
+  color: var(--text-light);
+}
+
+header {
+  text-align: center;
+  padding: 20px;
+  background: var(--primary);
+  color: white;
+  position: sticky;
+  top: 0;
+}
+
+header input {
+  width: 200px;
+  border: none;
+  padding: 8px;
+  border-radius: 8px;
+}
+
+header button {
+  background: var(--secondary);
+  border: none;
+  padding: 8px 15px;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+}
+
+header button:hover {
+  background: #17a673;
+}
+
+.buttons {
+  text-align: center;
+  margin: 20px;
+}
+
+button {
+  margin: 5px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  background: var(--primary);
+  color: white;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+button:hover {
+  transform: scale(1.05);
+  background: #375acb;
+}
+
+#profiles {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  padding: 20px;
+}
+
+.profile-card {
+  background: white;
+  border-radius: 10px;
+  width: 250px;
+  padding: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.dark-mode .profile-card {
+  background: #2c2c2c;
+  color: white;
+}
+
+.profile-card:hover {
+  transform: translateY(-7px) scale(1.02);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* Skill Tags */
+.skill-tag {
+  display: inline-block;
+  margin: 3px 3px 3px 0;
+  padding: 3px 7px;
+  border-radius: 12px;
+  font-size: 0.85em;
+  color: white;
+}
+
+.skill-tag.teach { background: #4e73df; }
+.skill-tag.learn { background: #1cc88a; }
+
+/* No profiles / no search results message */
+.no-profiles {
+  text-align: center;
+  color: #555;
+  font-style: italic;
+  margin-top: 20px;
+}
+
+/* Form section */
+#formSection {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.hidden { display: none; }
+
+/* Smooth input focus */
+input:focus {
+  outline: none;
+  box-shadow: 0 0 5px var(--primary);
+  border: 1px solid var(--primary);
+  transition: 0.3s;
+}
+
+.toggle-dark {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: transparent;
+  color: white;
+  border: 1px solid white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+footer {
+  text-align: center;
+  padding: 10px;
+  background: #222;
+  color: white;
+}
+
+/* Copy Contact Button */
+.copy-btn {
+  margin-left: 8px;
+  padding: 3px 7px;
+  font-size: 0.8em;
+  border: none;
+  border-radius: 5px;
+  background: var(--secondary);
+  color: white;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.copy-btn:hover {
+  background: #17a673;
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skill Connect Portal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1>🧠 Skill Connect Portal</h1>
+  <input type="text" id="searchInput" placeholder="Search by skill..." oninput="searchSkill()">
+  <button class="toggle-dark" onclick="toggleDarkMode()">🌙</button>
+</header>
+
+<main>
+  <div class="buttons">
+    <button onclick="showAddForm()">➕ Add Your Profile</button>
+    <button onclick="loadProfiles()">👥 View All Profiles</button>
+  </div>
+
+  <div id="formSection" class="hidden">
+    <h2>Add Your Profile</h2>
+    <input id="name" placeholder="Your Name" required>
+    <input id="dept" placeholder="Department">
+    <input id="teach" placeholder="Skills You Can Teach (comma separated)" required>
+    <input id="learn" placeholder="Skills You Want to Learn">
+    <input id="contact" placeholder="Email or Phone">
+    <button onclick="addProfile()">Save Profile</button>
+  </div>
+
+  <div id="profiles"></div>
+</main>
+
+<footer>
+  © 2025 Skill Connect | Made by G Pradeesh 💻
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
