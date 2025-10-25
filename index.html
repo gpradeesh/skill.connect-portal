@@ -1,123 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vibe — Team Collaboration Platform</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skill Connect Portal</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-<body class="min-h-screen bg-gradient-to-b from-white via-slate-50 to-sky-50">
-  <header class="mx-auto max-w-6xl p-6 flex items-center justify-between">
-    <div class="flex items-center gap-3">
-      <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-indigo-500 to-pink-500 flex items-center justify-center text-white font-bold">V</div>
-      <div class="text-lg font-semibold">Vibe</div>
-    </div>
-    <nav class="hidden md:flex gap-6 text-sm text-slate-600">
-      <a href="#features">Features</a>
-      <a href="#pricing">Pricing</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+<body>
 
-  <main class="mx-auto max-w-6xl px-6 py-12 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-    <section>
-      <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight">Launch your team's creative energy with Vibe</h1>
-      <p class="mt-4 text-lg text-slate-700">Vibe helps teams brainstorm, organize, and share ideas — fast. Collaborative canvases, live voting, and smart summaries.</p>
+<header>
+  <h1>🧠 Skill Connect Portal</h1>
+  <input type="text" id="searchInput" placeholder="Search by skill..." oninput="searchSkill()">
+  <button class="toggle-dark" onclick="toggleDarkMode()">🌙</button>
+</header>
 
-      <form id="subscribeForm" class="mt-6 flex max-w-md gap-2">
-        <input id="email" type="email" required placeholder="your email" class="flex-1 rounded-md border border-slate-200 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-300" />
-        <button type="submit" class="rounded-md bg-indigo-600 text-white px-4 py-3">Get early access</button>
-      </form>
-      <div id="message" class="mt-3 text-sm text-slate-600"></div>
+<main>
+  <div class="buttons">
+    <button onclick="showAddForm()">➕ Add Your Profile</button>
+    <button onclick="loadProfiles()">👥 View All Profiles</button>
+  </div>
 
-      <div class="mt-8 flex gap-4">
-        <div class="rounded-md border px-3 py-2 text-sm">Free trial</div>
-        <div class="rounded-md border px-3 py-2 text-sm">No credit card</div>
-      </div>
-    </section>
+  <div id="formSection" class="hidden">
+    <h2>Add Your Profile</h2>
+    <input id="name" placeholder="Your Name" required>
+    <input id="dept" placeholder="Department">
+    <input id="teach" placeholder="Skills You Can Teach (comma separated)" required>
+    <input id="learn" placeholder="Skills You Want to Learn">
+    <input id="contact" placeholder="Email or Phone">
+    <button onclick="addProfile()">Save Profile</button>
+  </div>
 
-    <aside class="rounded-xl bg-white shadow-lg p-6">
-      <div class="text-sm text-slate-500">Live demo</div>
-      <div class="mt-4 h-64 rounded-md border border-slate-100 bg-gradient-to-br from-slate-50 to-white flex items-center justify-center text-slate-400">Preview area</div>
+  <div id="profiles"></div>
+</main>
 
-      <div class="mt-6 grid grid-cols-2 gap-3 text-sm text-slate-600">
-        <div class="p-3 rounded-md border">Realtime sync</div>
-        <div class="p-3 rounded-md border">Activity feed</div>
-        <div class="p-3 rounded-md border">Voting</div>
-        <div class="p-3 rounded-md border">Export PDF</div>
-      </div>
-    </aside>
-  </main>
+<footer>
+  © 2025 Skill Connect | Made by G Pradeesh 💻
+</footer>
 
-  <section id="features" class="mx-auto max-w-6xl px-6 py-12">
-    <h2 class="text-2xl font-semibold">Features</h2>
-    <div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-6">
-      <div class="rounded-lg bg-white p-4 shadow-sm">
-        <div class="font-medium">Collaborative canvases</div>
-        <div class="mt-2 text-sm text-slate-600">Drag, drop and organize ideas together.</div>
-      </div>
-      <div class="rounded-lg bg-white p-4 shadow-sm">
-        <div class="font-medium">Smart summaries</div>
-        <div class="mt-2 text-sm text-slate-600">Auto-generated meeting notes and action items.</div>
-      </div>
-      <div class="rounded-lg bg-white p-4 shadow-sm">
-        <div class="font-medium">Live voting</div>
-        <div class="mt-2 text-sm text-slate-600">Let the team decide — fast.</div>
-      </div>
-    </div>
-  </section>
-
-  <section id="pricing" class="mx-auto max-w-6xl px-6 py-12">
-    <h2 class="text-2xl font-semibold">Pricing</h2>
-    <div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-6">
-      <div class="rounded-lg border p-6">
-        <div class="text-lg font-semibold">Starter</div>
-        <div class="mt-2 text-3xl font-bold">Free</div>
-        <div class="mt-4 text-sm text-slate-600">Up to 5 users, basic features</div>
-      </div>
-      <div class="rounded-lg border p-6">
-        <div class="text-lg font-semibold">Team</div>
-        <div class="mt-2 text-3xl font-bold">₹499 / mo</div>
-        <div class="mt-4 text-sm text-slate-600">Unlimited projects, priority support</div>
-      </div>
-      <div class="rounded-lg border p-6">
-        <div class="text-lg font-semibold">Enterprise</div>
-        <div class="mt-2 text-3xl font-bold">Contact us</div>
-        <div class="mt-4 text-sm text-slate-600">SAML, dedicated support, SLAs</div>
-      </div>
-    </div>
-  </section>
-
-  <footer id="contact" class="mx-auto max-w-6xl px-6 py-12 text-sm text-slate-600">
-    <div class="flex flex-col md:flex-row justify-between gap-6">
-      <div>
-        <div class="font-semibold">Vibe</div>
-        <div class="mt-2">Made with ❤️ — contact@vibe.example</div>
-      </div>
-      <div class="flex gap-4">
-        <a href="#">Privacy</a>
-        <a href="#">Terms</a>
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    const form = document.getElementById('subscribeForm');
-    const msg = document.getElementById('message');
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      const email = document.getElementById('email').value;
-      if (!email.includes('@')) {
-        msg.textContent = 'Invalid email';
-        return;
-      }
-      msg.textContent = 'Subscribed successfully!';
-      form.reset();
-    });
-  </script>
+<script src="script.js"></script>
 </body>
 </html>
-
-
-
-
