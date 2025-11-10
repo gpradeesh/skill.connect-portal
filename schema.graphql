@@ -1,0 +1,36 @@
+type User @table {
+  displayName: String!
+  email: String!
+  password: String!
+  createdAt: Timestamp!
+  photoUrl: String
+  bio: String
+  isTutor: Boolean
+}
+type Language @table {
+  name: String!
+  createdAt: Timestamp!
+  code: String
+}
+type TutorProfile @table {
+  user: User!
+  teachingDescription: String!
+  createdAt: Timestamp!
+  teachingExperience: String
+  hourlyRate: Float
+  certification: String
+}
+type TutorLanguage @table(key: ["tutorProfile", "language"]) {
+  tutorProfile: TutorProfile!
+  language: Language!
+  proficiencyLevel: String!
+  specialties: String
+}
+type Media @table {
+  tutorProfile: TutorProfile!
+  url: String!
+  mediaType: String!
+  createdAt: Timestamp!
+  caption: String
+  thumbnailUrl: String
+}
